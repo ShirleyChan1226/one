@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title id="title"></title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<script src="js/config.js"></script>
+        <script src="js/snap.svg.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+        <audio id="audio_bg" src="http://q.letwx.com/app/touchtotouch-build/resource/happy.mp3" loop="loop" preload></audio>
+        <audio id="audio_button" src="http://q.letwx.com/app/touchtotouch-build/resource/button.mp3" preload></audio>
+
+		<section id="indexPage" class="hide rel wh-100">
+            <img id="music" class="hide abs musicRun" src="" alt=""/>
+			<img class="logo abs-h-center" src="" alt=""/>
+			<img class="indexTitle abs-h-center" src="" alt=""/>
+            <!--type0抽奖  type1分享-->
+            <div class="w-100 abs-h-center hidden">
+                <img class='type0 startBtn' src="" alt=""/>
+                <img class="type0 ruleBtn ruleBtn0 f-l" src="" alt=""/>
+                <img class="type0 myprizeBtn f-r" src="" alt=""/>
+            </div>
+
+            <img class='type1 startBtn abs-h-center' src="" alt=""/>
+            <img class='type1 ruleBtn ruleBtn1 abs' src="" alt=""/>
+		</section>
+
+		<section id="rulePage" class="m-pop rel hide">
+			<div class="abs-center">
+                <img class="ruleBg w-100" src="" alt=""/>
+                <img id="ruleCloseBtn" class="abs" src="" alt=""/>
+				<div class="abs-h-center rules w-100"></div>
+			</div>
+		</section>
+
+		<section id="gamePage" class="wh-100 hide rel">
+            <img src="" alt="" class="game_hint abs-h-center"/>
+            <div class="timeScore abs-h-center w-100">
+                <p class="f-l rel">
+                    <img class="level w-100" src="" alt=""/>
+                    <span class="abs-v-center font-20" id="score"></span>
+                </p>
+                <p class="f-r rel">
+                    <img class="clock w-100" src="" alt=""/>
+                    <span class="abs-v-center font-20" id="second"></span>
+                </p>
+            </div>
+            <svg id="gameSVG" class="wh-100"></svg>
+		</section>
+
+		<section id="resultPage" class="wh-100 m-pop hide">
+            <div class="abs-center">
+                <img class="resultBg w-100" src="" alt=""/>
+                <div class="abs-h-center hintBox w-100 t-c">
+                    <p class="scoreHint font-16 t-c"></p>
+                    <p class="levelHint font-16">真不愧为<span></span></p>
+                    <div class="resultHint font-16"></div>
+                </div>
+                <div class="btnBox abs-h-center w-100 t-c">
+                    <img id="againBtn" src="" alt=""/>
+                    <img id="shareBtn" src="" alt=""/>
+                    <img id="getBtn" src="" alt=""/>
+                </div>
+            </div>
+		</section>
+
+        <section id="sharePage" class="m-pop hide">
+            <img class="abs" src="" alt=""/>
+        </section>
+
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>

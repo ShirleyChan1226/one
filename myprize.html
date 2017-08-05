@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="title"></title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+	<script src="js/config.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/same.css" />
+    <link rel="stylesheet" type="text/css" href="css/static.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+    <audio id="audio_button" src="http://q.letwx.com/app/touchtotouch-build/resource/button.mp3" preload></audio>
+
+    <section id="myprizePage" class="wh-100 rel hide"></section>
+
+    <textarea id="myprizeTMP" class="hide">
+        <ul class="w-100 abs-h-center hidden-s">
+            <!--li.noApply 表示券不能使用-->
+            <%
+            for(var i=0;i<coupon.length;i++){
+            %>
+
+                <li class="rel w-100 <%=(coupon[i].isuse==1)?'noApply':'' || (coupon[i].isexpired==1)?'noApply':''%>"
+                    data-qname="<%=coupon[i].qname%>"
+                    data-shorttitle="<%=coupon[i].shorttitle%>"
+                    data-starttime="<%=coupon[i].starttime%>"
+                    data-endtime="<%=coupon[i].endtime%>"
+                    data-isuse="<%=coupon[i].isuse%>"
+                    data-isexpired="<%=coupon[i].isexpired%>"
+                    data-consumemethod="<%=coupon[i].consumemethod%>"
+                    data-descrip="<%=coupon[i].descrip%>"
+                    data-showtype="<%=coupon[i].showtype%>"
+                    data-code="<%=coupon[i].code%>"
+                    data-isnet="<%=coupon[i].isnet%>"
+                    data-useurl="<%=coupon[i].useurl%>">
+
+                    <div>
+                        <h2 class="font-15 font-bold t-l hidden-e-r2"><%=coupon[i].qname%></h2>
+                        <p class="font-10 t-l">使用时间：<%=coupon[i].starttime%> - <%=coupon[i].endtime%></p>
+                    </div>
+                    <%
+                    if(coupon[i].isuse == 1){
+                    <!-- 已使用 -->
+                    %>
+                        <img class="state state_used abs-v-center" src="" alt=""/>
+                        <img class="aheadBtn aheadBtn1 abs-v-center" src="" alt=""/>
+                    <%
+                    }else if(coupon[i].isexpired == 1){
+                    <!-- 已过期 -->
+                    %>
+                        <img class="state state_expired abs-v-center" src="" alt=""/>
+                        <img class="aheadBtn aheadBtn1 abs-v-center" src="" alt=""/>
+                    <%
+                    }else{
+                    %>
+                        <img class="aheadBtn aheadBtn0 abs-v-center" src="" alt=""/>
+                    <%
+                    }
+                    %>
+                </li>
+
+            <%
+            }
+            %>
+        </ul>
+        <img id="backBtn" class="abs-h-center" src="" alt=""/>
+    </textarea>
+
+    <section id="verifyPage" class="hide m-pop">
+        <!--verifyPage.noApply表示券不能使用-->
+        <!--核销框-->
+        <div class="wh-100 rel hidden-s">
+            <div class="name_time_state t-c rel w-100">
+                <span></span><span></span>
+                <h2 class="qname font-18"></h2>
+                <h6 class="shorttitle font-14"></h6>
+                <p class="font-10 start_end"></p>
+                <!--判断券状态，显示状态图标-->
+                <img class="state state_used abs hide" src="" alt=""/>
+                <img class="state state_expired abs hide" src="" alt=""/>
+            </div>
+
+            <div class="showBox codeBox t-c hide">
+                <!-- 卡券号 -->
+                <p class="code line-30"></p>
+                <p class="font-10">使用时请出示卡券号</p>
+            </div>
+            <div class="showBox barcodeBox t-c hide">
+                <!-- 条形码+卡券号 -->
+                <div id="barcode"></div>
+                <p class="code"></p>
+                <p class="font-10">使用时请出示该条形码或卡券号</p>
+            </div>
+            <div class="showBox qrcodeBox t-c hide">
+                <!-- 二维码+卡券号 -->
+                <div id="qrcode"></div>
+                <p class="code"></p>
+                <p class="font-10">使用时请出示该二维码或卡券号</p>
+            </div>
+            <div class="showBox deliveryBox t-c hide">
+                <!-- 实物邮寄 -->
+                <input type="text" placeholder="姓名"/>
+                <input type="text" placeholder="电话"/>
+                <input type="email" placeholder="邮箱"/>
+                <textarea placeholder="地址"></textarea>
+                <p>请核对信息是否正确</p>
+                <button id="sureBtn" class="font-18">提 交</button>
+            </div>
+            <div class="showBox psdBox t-c hide">
+                <!-- 线下领取，密码核销 -->
+                <h5 class="color-black font-14">请输入核销密码</h5>
+                <input id="getPsd" type="text"/>
+                <p class="font-10">使用时请输入核销密码</p>
+                <button id="checkBtn" class="font-16">核 销</button>
+            </div>
+
+            <div class="getShopBox rel w-100 hide">
+                <p class="font-15">支持门店</p>
+                <img class="aheadBtn1 abs-v-center" src="" alt=""/>
+            </div>
+
+            <div class="descBox t-l">
+                <h5 class="font-14 line-20">使用说明</h5>
+                <div class="desc font-14"></div>
+                <!-- desc盛放详情盒子 -->
+            </div>
+
+            <button id="verifyCloseBtn" class="fixed">关 闭</button>
+        </div>
+    </section>
+
+    <section id="shopPage" class="m-pop hide">
+        <div class="previousBox t-c rel w-100">
+            <img class="abs-v-center previousBtn" src="" alt=""/>
+            适用门店
+        </div>
+        <ul>
+            <li class="rel">
+                <div>
+                    <h2 class="font-16">江汉区菱角湖万达<span class="f-r font-13">1000米</span></h2>
+                    <p class="font-15">武汉江汉区万松园</p>
+                    <h6 class="font-14">027-100010010</h6>
+                </div>
+                <img class="abs-v-center gps" src="" alt=""/>
+            </li>
+            <li class="rel">
+                <div>
+                    <h2 class="font-16">江汉区菱角湖万达<span class="f-r font-10">1000米</span></h2>
+                    <p class="font-15">武汉江汉区万松园</p>
+                    <h6 class="font-14">027-100010010</h6>
+                </div>
+                <img class="abs-v-center gps" src="" alt=""/>
+            </li>
+        </ul>
+    </section>
+
+	<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+	<script type="text/javascript" src="js/myprize.js"></script>
+</body>
+</html>

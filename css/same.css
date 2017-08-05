@@ -1,0 +1,433 @@
+/****************常用样式开始**************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);  /*处理表单元素点击样式，专用于chrome内核*/
+}
+*:before,*:after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+html{
+    width: 100%;
+    height: 100%;
+    font-size: 10px;
+    -webkit-user-select: none;  /*文本不能被选择*/
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+body{
+    position: relative;
+    max-width: 640px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-height: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    font-family: "Microsoft YaHei", arial, 'Lato', Calibri, Arial, sans-serif;
+    -webkit-text-size-adjust: none;    /*文本大小不会根据设备尺寸进行调整*/
+}
+header{
+    z-index: 999;
+}
+footer{
+    z-index: 999;
+}
+/*修改默认滚动条样式，去掉滚动条*/
+::-webkit-scrollbar{
+    width: 0;
+	height: 0;
+}
+/*input,textarea的placeholder样式开始*/
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #666;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #666;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #666;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #666;
+}
+/*input,textarea的placeholder样式结束*/
+ul,li{
+    list-style-type: none;
+}
+img{
+    border: none;
+    vertical-align: middle;
+}
+button{
+    outline: none;
+    border: none;
+}
+select{
+    border: none;
+}
+audio{
+	display: none;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+/*输入框默认样式*/
+input{
+    appearance: none;   /*使元素看上去像标准的用户界面元素*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -webkit-transition: background-color;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+/*input type='checkbox'样式*/
+input[type='checkbox']{
+    appearance: checkbox;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    -o-appearance: checkbox;
+    -ms-appearance: checkbox;
+}
+/*input type='checkbox'样式*/
+input[type='radio']{
+    appearance: radio;
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
+    -o-appearance: radio;
+    -ms-appearance: radio;
+}
+textarea{
+    appearance: none;   /*使元素看上去像标准的用户界面元素*/
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    resize: none;
+}
+.w-100{
+    width: 100%;
+}
+.h-100{
+    height: 100%;
+}
+.wh-100{
+    width: 100%;
+    height: 100%;
+}
+/*宽高相同,子元素定位处理*/
+.wh-same:before{
+    display: block;
+    padding-top: 100%;
+    content: '';
+}
+.m-auto{
+    margin: 0 auto;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+/*******按钮样式开始********/
+button:active{
+    opacity: 0.7;
+}
+.button{
+    display: inline-block;
+    padding: 8px 20px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5px;
+    color: #fff;
+    border-bottom: 2px solid transparent;
+    font-size: 1.3rem;
+}
+/*按钮颜色*/
+.button-red{
+    background-color: #eb4040;
+    border-bottom-color: #ae2f2f;
+    text-shadow: 1px 1px #ae2f2f; 
+}
+.button-green{
+    background-color: #a0d468;
+    border-bottom-color: #81b449; 
+    text-shadow: 1px 1px #81b449; 
+}
+.button-gray{
+    background-color: #a4a9ae;
+    border-bottom-color: #83898f;
+    text-shadow: 1px 1px #83898f;  
+}
+.button-orange{
+    background-color: #fc6e51;
+    border-bottom-color: #e9573f;
+    text-shadow: 1px 1px #e9573f;  
+}
+.button-yellow{
+    background-color: #ffce54;
+    border-bottom-color: #f6bb42;
+    text-shadow: 1px 1px #f6bb42;   
+}
+.button-mint{
+    background-color: #48cfad;
+    border-bottom-color: #37bc9b; 
+    text-shadow: 1px 1px #37bc9b;
+}
+.button-blue{
+    background-color: #4fc1e9;
+    border-bottom-color: #3bafda; 
+    text-shadow: 1px 1px #3bafda;
+}
+.button-violet{
+    background-color: #ac92ec;
+    border-bottom-color: #967adc; 
+    text-shadow: 1px 1px #967adc;
+}
+.button-pink{
+    background-color: #ec87c0;
+    border-bottom-color: #d770ad; 
+    text-shadow: 1px 1px #d770ad;
+}
+/*按钮形状*/
+.button-block{
+    display: block;
+    width: 100%;
+}
+.button-full{
+    display: block;
+    width: 100%;
+    border-radius: 0;
+}
+/********按钮样式结束********/
+/*display开始*/
+.d-b{
+    display: block;
+}
+.d-i-b{
+    display: inline-block;
+}
+.d-i{
+    display: inline;
+}
+/*display结束*/
+/*浮动开始*/
+.f-l{
+    float: left;
+}
+.f-r{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+/*浮动结束*/
+/*文字截取开始*/
+.hidden{
+    overflow: hidden;
+    white-space: nowrap;
+}
+.hidden-s{
+    overflow: scroll;
+}
+.hidden-e{
+    overflow: hidden;
+    white-space: nowrap;    /*规定段落中的文本不进行换行*/
+    text-overflow: ellipsis;    /*显示省略符号来代表被修剪的文本*/
+}
+.hidden-e-r2{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;      /*设置多行文本超出隐藏*/
+}
+.hidden-b{
+    overflow: hidden;
+    word-break: break-all;  /*允许在单词内换行*/
+}
+/*文字截取结束*/
+/*定位开始*/
+.fixed{
+    position: fixed;
+}
+.abs{
+    position: absolute;
+}
+.rel{
+    position: relative;
+}
+.pos-left{
+    left: 0;
+}
+.pos-right{
+    right: 0;
+}
+.pos-top{
+    top: 0;
+}
+.pos-bottom{
+    bottom: 0;
+}
+.abs-h-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.abs-v-center{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+.abs-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+}
+/*定位结束*/
+/*字体颜色开始*/
+.color-black{
+    color: #454545;
+}
+.color-gray{
+    color: #8a8a8a;
+}
+.color-orange{
+    color: #eb7155;
+}
+.color-white{
+    color: #fff;
+}
+/*字体颜色结束*/
+.font-bold{
+    font-weight: bold;
+}
+/*字体大小开始*/
+.font-10{
+    font-size: 1.0rem;
+}
+.font-11{
+    font-size: 1.1rem;
+}
+.font-12{
+    font-size: 1.2rem;
+}
+.font-13{
+    font-size: 1.3rem;
+}
+.font-14{
+    font-size: 1.4rem;
+}
+.font-15{
+    font-size: 1.5rem;
+}
+.font-16{
+    font-size: 1.6rem;
+}
+.font-18{
+    font-size: 1.8rem;
+}
+.font-20{
+    font-size: 2.0rem;
+}
+.font-22{
+    font-size: 2.2rem;
+}
+.font-24{
+    font-size: 2.4rem;
+}
+/*字体大小结束*/
+/*行间距开始*/
+.line-16{
+    line-height: 1.6rem;
+}
+.line-18{
+    line-height: 1.8rem;
+}
+.line-20{
+    line-height: 2rem;
+}
+.line-22{
+    line-height: 2.2rem;
+}
+.line-24{
+    line-height: 2.4rem;
+}
+.line-26{
+    line-height: 2.6rem;
+}
+.line-28{
+    line-height: 2.8rem;
+}
+.line-30{
+    line-height: 3rem;
+}
+/*行间距结束*/
+/*文本开始*/
+.t-c{
+    text-align: center;
+}
+.t-l{
+    text-align: left;
+}
+.t-r{
+    text-align: right;
+}
+/*文本结束*/
+/*margin-top造成的bug*/
+.append-before:before{
+    display: table;
+    content: '';
+}
+/*float对父元素造成的影响*/
+.append-after:after{
+	display: table;
+    content: '';
+    clear: both;
+}
+/*遮罩层样式*/
+.mask{
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+}
+/****************常用样式结束**************/
+
+/*********************************微信端媒体查询*****************************/
+/*iphone6 pluse*/
+@media only screen and (max-width: 414px) and (max-height: 672px){
+
+}
+/*iphone6*/
+@media only screen and (max-width: 375px) and (max-height: 603px){
+
+}
+/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 504px){
+
+}
+/*iphone4*/
+@media only screen and (max-width: 320px) and (max-height: 416px){
+
+}
